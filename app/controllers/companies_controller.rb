@@ -1,16 +1,10 @@
-class CompaniesController < ApplicationController
+class CompaniesController < BaseController
   def index
-  end
-
-  def show
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def edit
+    @companies = Company.all
+  
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json # index.json.jbuilder が呼ばれる
+    end
   end
 end

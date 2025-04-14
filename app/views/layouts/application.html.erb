@@ -8,12 +8,17 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+  <%= render 'layouts/header' %>
+  <div class="layout">
     <%= render 'layouts/sidebar' %>
-    <%= yield %>
-  </body>
+    <main class="main-content">
+      <%= yield %>
+    </main>
+  </div>
+</body>
 </html>
