@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      company: 会社
+    attributes:
+      company:
+        id: ID
+        information: 情報
+        name: 会社名
