@@ -1,0 +1,29 @@
+<%= link_to '↩️戻る', companies_path, class: 'back-link' %>
+
+<%# あとで変数的に扱えるようにする %>
+<h4>会社情報を編集</h4>
+
+<%= form_with(model: @company, local: true, data: { turbo: false }) do |form| %>
+  <% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h6><%= @company.errors.count %>件エラーが発生しました:</h6>
+      <ul>
+        <% @company.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :information %>
+    <%= form.text_area :information, class: "form-control" %>
+  </div>
+
+  <%= form.submit "更新する", class: "btn btn-primary" %>
+<% end %>

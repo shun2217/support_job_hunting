@@ -11,7 +11,8 @@ mapはブロックの中で計算などした結果でリストを作成して�
 json.OO XXは、OOをキーとしたXXの値をjsonにする感じ。jbuilder内でこれがある度にjsonの内容が追加されるイメージ
 human_attribute_nameはi18nの適用のメソッド
 """
-json.columns columns.map { |col| Company.human_attribute_name(col) } # カラム名を日本語に変換しjson化
+# カラム名を日本語に変換しjson化 編集ボタンのためのカラムも追加
+json.columns columns.map { |col| Company.human_attribute_name(col) } + ["操作"]
 
 """
 sendは変数を使ってデータの中身を取り出すときに使う
@@ -19,5 +20,13 @@ Model.nameを呼びたいとき、col=”name” Model.send(col)でいける
 ここではmapを二重に使って[”カラム1の中身”, ”カラム2の中身”]みたいなのを値としたjsonを作っている
 """
 json.data @companies.map { |company|
-  columns.map { |col| company.send(col) }
-} # 各レコードで、各カラムの配列を取得しjson化
+  columns_data = columns.map { |col| company.send(col) } # 各レコードで、各カラムの配列を取得しjson化
+
+  # 編集リンクを作成
+  """
+  view_contextはviewファイルで扱うlink_to等をview以外の場所でも使うためのもの
+  ここでは、columns_dataの最後にlink_toで生成されるHTMLを代入しているので、ボタンを作れる
+  """
+  edit_button = link_to("編集", edit_company_path(company), class: "btn btn-primary btn-sm")
+  columns_data + [edit_button]
+} 

@@ -7,3 +7,9 @@ ja:
         id: ID
         information: 情報
         name: 会社名
+    errors:
+        models:
+          company:
+            attributes:
+              name:
+                blank: "会社名を入力してください"
