@@ -41,3 +41,10 @@ document.addEventListener("turbo:load", () => {
   }
 });
 
+// Turboがキャッシュ保存する前にDataTableを破棄
+document.addEventListener("turbo:before-cache", () => {
+  const table = $('#companies-table');
+  if ($.fn.DataTable.isDataTable(table)) {
+    table.DataTable().destroy();
+  }
+});
