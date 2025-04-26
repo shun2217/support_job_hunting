@@ -3,10 +3,17 @@
 # Table name: companies
 #
 #  id          :integer          not null, primary key
+#  desire      :integer          default(0), not null
 #  information :text
+#  memo        :text
+#  my_page     :string
 #  name        :string           not null
+#  status      :integer          default(0), not null
+#  strength    :text
+#  weakness    :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  industry_id :integer
 #
 require "test_helper"
 

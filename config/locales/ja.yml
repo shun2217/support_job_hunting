@@ -5,11 +5,39 @@ ja:
     attributes:
       company:
         id: ID
-        information: 情報
+        desire: 志望度
+        information: 基本情報
+        memo: メモ
+        my_page: マイページ
         name: 会社名
+        status: ステータス
+        strength: 強み
+        weakness: 弱み
+        operation: 操作
+    enums:
+      company:
+        status: 
+          consideration: 検討中
+          entry: エントリー中
+          intern: インターン参加予定
+          scheduled_of_selection: 選考参加予定
+          ongoing_of_selection: 選考中
+          done_of_selection: 内定済
+          failed_of_selection: 辞退・落選済
+        desire:
+          undecided: 未
+          low: 低
+          middle: 中
+          high: 高
     errors:
         models:
           company:
             attributes:
+              desire:
+                blank: "志望度を選択してください"
+              status:
+                blank: "状態を選択してください"
               name:
                 blank: "会社名を入力してください"
+              
+              

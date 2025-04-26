@@ -17,4 +17,12 @@ module ApplicationHelper
       link_to name, path, class: 'channel_name'
     end
   end
+
+  def human_column_name(model_class, column)
+    if column == "operation"
+      I18n.t("activerecord.attributes.#{model_class.model_name.i18n_key}.#{column}")
+    else
+      model_class.human_attribute_name(column)
+    end
+  end
 end

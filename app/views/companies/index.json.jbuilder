@@ -1,32 +1,24 @@
-excluded_columns = %w[created_at updated_at] # 表示しないカラム名のリストの作成
+# 表示しないカラム名のリストの作成
+excluded_columns = %w[id information memo created_at updated_at industry_id]
 
-"""
-# rejectは.reject{|変数| 条件式}で、リストなどから一つずつ変数を取り出して、条件式がtrueになるものを削除していく
-# .include?(変数)が、変数がリストに含まれている場合trueとなるので、exclude_columnsに含まれるカラム名を削除している
-"""
-columns = Company.column_names.reject { |c| excluded_columns.include?(c) } # 表示しないカラムの削除
+# 表示しないカラムの削除とoperationの追加
+columns = Company.column_names.reject { |c| excluded_columns.include?(c) } + ["operation"]
 
-"""
-mapはブロックの中で計算などした結果でリストを作成していくので、つまりリストの値を利用した新しいリストの作成に使う
-json.OO XXは、OOをキーとしたXXの値をjsonにする感じ。jbuilder内でこれがある度にjsonの内容が追加されるイメージ
-human_attribute_nameはi18nの適用のメソッド
-"""
-# カラム名を日本語に変換しjson化 編集ボタンのためのカラムも追加
-json.columns columns.map { |col| Company.human_attribute_name(col) } + ["操作"]
+# カラム名を日本語に変換しjson化
+json.columns columns.map { |col| human_column_name(Company, col) }
 
-"""
-sendは変数を使ってデータの中身を取り出すときに使う
-Model.nameを呼びたいとき、col=”name” Model.send(col)でいける
-ここではmapを二重に使って[”カラム1の中身”, ”カラム2の中身”]みたいなのを値としたjsonを作っている
-"""
 json.data @companies.map { |company|
-  columns_data = columns.map { |col| company.send(col) } # 各レコードで、各カラムの配列を取得しjson化
-
-  # 編集リンクを作成
-  """
-  view_contextはviewファイルで扱うlink_to等をview以外の場所でも使うためのもの
-  ここでは、columns_dataの最後にlink_toで生成されるHTMLを代入しているので、ボタンを作れる
-  """
-  edit_button = link_to("編集", edit_company_path(company), class: "btn btn-primary btn-sm")
-  columns_data + [edit_button]
+  columns.map{ |col|
+    value = case col
+    when "my_page" # リンクにしたいカラム
+      link = company.send(col) rescue nil
+      link.present? ? link_to(link, link, target: "_blank", rel: "noopener") : nil
+    when "operation" # 編集ボタン
+      link_to("編集", edit_company_path(company), class: "btn btn-primary btn-sm")
+    when "status", "desire" # ENUM型の場合
+      I18n.t("activerecord.enums.company.#{col}.#{company.send(col)}")
+    else
+      company.send(col) rescue nil # その他普通のカラム
+    end
+  }
 } 

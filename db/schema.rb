@@ -13,7 +13,14 @@
 ActiveRecord::Schema[7.0].define(version: 2025_04_06_075706) do
   create_table "companies", force: :cascade do |t|
     t.string "name", null: false
+    t.integer "industry_id"
     t.text "information"
+    t.text "strength"
+    t.text "weakness"
+    t.integer "status", default: 0, null: false
+    t.integer "desire", default: 0, null: false
+    t.string "my_page"
+    t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
