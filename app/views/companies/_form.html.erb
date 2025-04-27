@@ -34,7 +34,7 @@
   <div class="mb-3">
     <%= f.label :status %>
     <%= 
-      f.select :desire, 
+      f.select :status, 
       Company.statuses.keys.map {|k| [t("activerecord.enums.company.status.#{k}"), k] }, 
       {}, 
       class: "form-select" 
