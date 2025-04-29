@@ -67,9 +67,10 @@
     * エントリーシート (es)
         * 関連
             * イベント(が親)
-        * 問 (question)
-        * 回答 (answer)
-        * イベントID(event_id)
+        * カラム
+            * 問 (question)
+            * 回答 (answer)
+            * イベントID(event_id)
 
 * ルール
     * コメントについて
