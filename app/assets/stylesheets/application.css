@@ -37,16 +37,15 @@
 .layout {
   display: flex;
   min-height: calc(100vh - 60px); /* headerの高さ分を除く */
+  height: auto; 
 }
 /* ここまでヘッダー以外の部分全体 */
 
 /* サイドバー */
 .sidebar {
   min-height: 100vh;
-  height: 100%;
   width: 220px;
   float: left;
-  /* color: #ab9ba9; */
   background-color: #CCEEFF;
   overflow-y: auto;
   overflow-x: hidden;
