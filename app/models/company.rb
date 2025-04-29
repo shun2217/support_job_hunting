@@ -3,12 +3,12 @@
 # Table name: companies
 #
 #  id          :integer          not null, primary key
-#  desire      :integer          default(0), not null
+#  desire      :integer          default("undecided"), not null
 #  information :text
 #  memo        :text
 #  my_page     :string
 #  name        :string           not null
-#  status      :integer          default(0), not null
+#  status      :integer          default("consideration"), not null
 #  strength    :text
 #  weakness    :text
 #  created_at  :datetime         not null
@@ -35,6 +35,7 @@ class Company < ApplicationRecord
   }
 
   # 関連
+  belongs_to :industry, optional: true
 
   # 委譲
 

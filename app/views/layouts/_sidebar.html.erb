@@ -2,8 +2,8 @@
   <div class="sidebar_channels">
     <h2 class="sidebar_header">一覧</h2>
     <ul class="sidebar_list">
-      <%= sidebar_link_item('会社一覧', companies_path) %>
-      <%= sidebar_link_item('業界一覧', '#') %>
+      <%= sidebar_link_item("#{Company.human_model_name}一覧", companies_path) %>
+      <%= sidebar_link_item("#{Industry.human_model_name}一覧", industries_path) %>
       <%= sidebar_link_item('自己分析', '#') %>
     </ul>
   </div>

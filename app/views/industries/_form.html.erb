@@ -1,0 +1,40 @@
+<%= link_to '↩️戻る', companies_path, class: 'back-link' %>
+
+<%# あとで変数的に扱えるようにする %>
+<h4>業界情報を編集</h4>
+
+<%= form_with(model: @industry, local: true, data: { turbo: false }) do |f| %>
+  <% if @industry.errors.any? %>
+    <div id="error_explanation">
+      <h6><%= @industry.errors.count %>件エラーが発生しました:</h6>
+      <ul>
+        <% @industry.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :interest %>
+    <%= 
+      f.select :interest, 
+      Company.desires.keys.map {|k| [t("activerecord.enums.industry.interest.#{k}"), k] }, 
+      {}, 
+      class: "form-select" 
+    %>
+
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :memo %>
+    <%= f.text_area :memo, class: "form-control", rows: 3 %>
+  </div>
+
+  <%= f.submit "更新する", class: "btn btn-primary" %>
+<% end %>
