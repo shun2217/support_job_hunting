@@ -21,6 +21,20 @@ class CompaniesController < BaseController
       render :edit
     end
   end
+
+  def new
+    @company = Company.new
+  end
+
+  def create
+    @company = Company.new
+    if @company.update(company_params) #作成して成功か否かで分岐
+      flash[:notice] = "作成に成功しました"
+      redirect_to companies_path # 成功の場合会社一覧に遷移
+    else
+      render :new
+    end
+  end
   
   private
   
@@ -32,6 +46,6 @@ class CompaniesController < BaseController
     そしてpermitでホワイトリスト化して欲しい部分以外に変なデータを混ぜてきても大丈夫なようにしている
     """
     #必要なカラムのみをハッシュに近い形で取得
-    params.require(:company).permit(:name, :desire, :status, :strength, :weakness, :my_page, :information, :memo)
+    params.require(:company).permit(:name, :desire, :status, :strength, :weakness, :my_page, :information, :memo, :industry_id)
   end
 end
