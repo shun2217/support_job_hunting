@@ -32,6 +32,6 @@ class CompaniesController < BaseController
     そしてpermitでホワイトリスト化して欲しい部分以外に変なデータを混ぜてきても大丈夫なようにしている
     """
     #必要なカラムのみをハッシュに近い形で取得
-    params.require(:company).permit(:name, :desire, :status, :strength, :weakness, :information, :memo)
+    params.require(:company).permit(:name, :desire, :status, :strength, :weakness, :my_page, :information, :memo)
   end
 end

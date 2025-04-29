@@ -8,9 +8,10 @@ window.jQuery = $
 import "datatables.net-dt"
 
 document.addEventListener("turbo:load", () => {
-  const table = document.querySelector('#companies-table');
+  const table = document.querySelector('table[data-model]');
   if (table) {
-    $.getJSON("/companies.json", function(response) {
+    const model = table.dataset.model;
+    $.getJSON(`/${model}.json`, function(response) {
       $(table).DataTable({
         "language": {
           "sEmptyTable":     "データがありません",
@@ -43,7 +44,7 @@ document.addEventListener("turbo:load", () => {
 
 // Turboがキャッシュ保存する前にDataTableを破棄
 document.addEventListener("turbo:before-cache", () => {
-  const table = $('#companies-table');
+  const table = $('table[data-model]');
   if ($.fn.DataTable.isDataTable(table)) {
     table.DataTable().destroy();
   }

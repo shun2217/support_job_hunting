@@ -1,11 +1,9 @@
 # db/seeds.rb
 
-# 業界データの作成 （業界モデル作ったらこれ活用する）
-# industry_1 = Industry.create(name: 'IT')
-# industry_2 = Industry.create(name: '製造業')
-# industry_3 = Industry.create(name: '医療')
+# リセットのための全削除
+Company.delete_all
 
-# 求職者データの作成
+# 会社データの作成
 Company.create([
   { 
     name: '株式会社A',

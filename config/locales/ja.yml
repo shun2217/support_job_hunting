@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       company: 会社
+      industry: 業界
     attributes:
       company:
         id: ID
@@ -14,6 +15,12 @@ ja:
         strength: 強み
         weakness: 弱み
         operation: 操作
+        industry_id: 業界
+      industry:
+        name: 業界名
+        interest: 興味
+        memo: メモ
+        operation: 操作
     enums:
       company:
         status: 
@@ -25,6 +32,12 @@ ja:
           done_of_selection: 内定済
           failed_of_selection: 辞退・落選済
         desire:
+          undecided: 未
+          low: 低
+          middle: 中
+          high: 高
+      industry:
+        interest:
           undecided: 未
           low: 低
           middle: 中

@@ -49,7 +49,12 @@
             * 会社 (が子)
         * カラム
             * 名前(name)　必須
-            * 興味(interest) (高　中　低　未)　必須　初期は未
+            * 興味(interest) ENUM型 必須 初期 0
+                * 0 未 (undecided)
+                * 1 低 (low)
+                * 2 中 (middle)
+                * 3 高 (high)
+            * メモ(memo)
     * イベント(event)
         * 関連
             * 会社(が親)
@@ -75,3 +80,7 @@
     * 良く使うコマンド
         * bundle exec annotate
         * rails db:migrate:reset
+        * rails generate model モデル名
+        * rails db:rollback
+        * rails db:migrate
+        * rails db:seed # これ使う前にresetやる
