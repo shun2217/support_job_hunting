@@ -18,7 +18,7 @@ json.data @companies.map { |company|
     when "status", "desire" # ENUM型の場合
       I18n.t("activerecord.enums.company.#{col}.#{company.send(col)}")
     when "industry_id" # 別のモデルから引っ張る
-      company.industry.name
+      company.industry.name rescue nil
     else
       company.send(col) rescue nil # その他普通のカラム
     end
