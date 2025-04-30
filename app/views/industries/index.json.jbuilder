@@ -1,8 +1,5 @@
-# 表示しないカラム名のリストの作成
-excluded_columns = %w[id memo created_at updated_at]
-
-# 表示しないカラムの削除とoperationの追加
-columns = Industry.column_names.reject { |c| excluded_columns.include?(c) } + ["operation"]
+# 表示するカラムを順番に代入
+columns = %w[name interest operation]
 
 # カラム名を日本語に変換しjson化
 json.columns columns.map { |col| human_column_name(Industry, col) }
