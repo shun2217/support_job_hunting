@@ -4,6 +4,7 @@ ja:
       company: 会社
       industry: 業界
       event: "イベント"
+      es: "エントリーシート"
     attributes:
       company:
         id: ID
@@ -29,6 +30,8 @@ ja:
         company_id: 会社
         memo: メモ
         operation: 操作
+      eses:
+        
     enums:
       company:
         status: 

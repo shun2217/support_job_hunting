@@ -9,5 +9,5 @@
 #  updated_at :datetime         not null
 #  event_id   :integer
 #
-class E < ApplicationRecord
+class Es < ApplicationRecord
 end
