@@ -1,0 +1,47 @@
+<%= link_to '↩️戻る', events_path, class: 'back-link' %>
+
+<%= form_with(model: @event, local: true, data: { turbo: false }) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h6><%= @event.errors.count %>件エラーが発生しました:</h6>
+      <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :company_id %>
+    <%= link_to "追加したい場合はこちら", new_company_path, class: "text-muted small ms-2" %>
+    <%= 
+      f.select :company_id, 
+      Company.all.map {|i| [i.name, i.id] }, 
+      { prompt: "選択してください" }, 
+      class: "form-select" 
+    %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :started_at %>
+    <%= f.datetime_local_field :started_at, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :ended_at %>
+    <%= f.datetime_local_field :ended_at, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :memo %>
+    <%= f.text_area :memo, class: "form-control", rows: 3 %>
+  </div>
+
+  <%= f.submit "保存する", class: "btn btn-primary" %>
+<% end %>

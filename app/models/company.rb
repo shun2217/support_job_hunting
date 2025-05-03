@@ -36,6 +36,7 @@ class Company < ApplicationRecord
 
   # 関連
   belongs_to :industry, optional: true
+  has_many :events
 
   # 委譲
 

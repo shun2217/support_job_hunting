@@ -3,6 +3,7 @@ ja:
     models:
       company: 会社
       industry: 業界
+      event: "イベント"
     attributes:
       company:
         id: ID
@@ -19,6 +20,13 @@ ja:
       industry:
         name: 業界名
         interest: 興味
+        memo: メモ
+        operation: 操作
+      event:
+        name: イベント名
+        started_at: 開始日時
+        ended_at: 終了日時
+        company_id: 会社
         memo: メモ
         operation: 操作
     enums:
@@ -52,5 +60,19 @@ ja:
                 blank: "状態を選択してください"
               name:
                 blank: "会社名を入力してください"
+          industry:
+            attributes:
+              interest:
+                blank: "興味を選択してください"
+              name:
+                blank: "業界名を入力してください"
+          event:
+            attributes:
+              started_at:
+                blank: "開始日時を入力してください"
+              ended_at:
+                blank: "終了日時を入力してください"
+              name:
+                blank: "業界名を入力してください"
               
               
