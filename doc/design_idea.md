@@ -68,7 +68,7 @@
         * 関連
             * イベント(が親)
         * カラム
-            * 問 (question)
+            * 問 (question) 必須
             * 回答 (answer)
             * イベントID(event_id)
 

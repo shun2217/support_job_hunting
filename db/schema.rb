@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_04_27_162426) do
+ActiveRecord::Schema[7.0].define(version: 2025_05_03_100309) do
   create_table "companies", force: :cascade do |t|
     t.string "name", null: false
     t.integer "industry_id"
@@ -21,6 +21,14 @@ ActiveRecord::Schema[7.0].define(version: 2025_04_27_162426) do
     t.integer "desire", default: 0, null: false
     t.string "my_page"
     t.text "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "es", force: :cascade do |t|
+    t.text "question", null: false
+    t.text "answer"
+    t.integer "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
