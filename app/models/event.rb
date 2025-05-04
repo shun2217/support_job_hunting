@@ -17,6 +17,7 @@ class Event < ApplicationRecord
 
   # 関連
   belongs_to :company, optional: true
+  has_many :entry_sheets
 
   # 委譲
 

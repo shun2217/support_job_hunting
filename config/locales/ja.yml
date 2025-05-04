@@ -4,6 +4,7 @@ ja:
       company: 会社
       industry: 業界
       event: "イベント"
+      entry_sheet: "エントリーシート"
     attributes:
       company:
         id: ID
@@ -29,6 +30,16 @@ ja:
         company_id: 会社
         memo: メモ
         operation: 操作
+      entry_sheet:
+        title: タイトル
+        question: 問
+        answer: 回答
+        event_id: イベント
+        words: 文字数
+        memo: メモ
+        company: 会社
+        operation: 操作
+        
     enums:
       company:
         status: 

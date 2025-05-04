@@ -72,9 +72,12 @@
         * 関連
             * イベント(が親)
         * カラム
-            * 問 (question)
+            * タイトル(title) 
+            * 問 (question) 
             * 回答 (answer)
             * イベントID(event_id)
+            * 文字数(words)
+            * メモ(memo)
 
 * ルール
     * コメントについて
