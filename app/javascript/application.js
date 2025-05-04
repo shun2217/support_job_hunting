@@ -13,6 +13,9 @@ document.addEventListener("turbo:load", () => {
     const model = table.dataset.model;
     $.getJSON(`/${model}.json`, function(response) {
       $(table).DataTable({
+        columnDefs: [
+          { targets: '_all', className: 'dt-center' }
+        ],
         "language": {
           "sEmptyTable":     "データがありません",
           "sInfo":           "_START_ 〜 _END_ 件／全 _TOTAL_ 件",

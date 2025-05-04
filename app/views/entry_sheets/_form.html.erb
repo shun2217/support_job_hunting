@@ -1,0 +1,52 @@
+<%= link_to '↩️戻る', entry_sheets_path, class: 'back-link' %>
+
+<%= form_with(model: @entry_sheet, local: true, data: { turbo: false }) do |f| %>
+  <% if @entry_sheet.errors.any? %>
+    <div id="error_explanation">
+      <h6><%= @entry_sheet.errors.count %>件エラーが発生しました:</h6>
+      <ul>
+        <% @entry_sheet.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :event_id %>
+    <%= link_to "追加したい場合はこちら", new_event_path, class: "text-muted small ms-2" %>
+    <%= 
+      f.select :event_id, 
+      Event.all.map {|i| [i.name, i.id] }, 
+      { prompt: "選択してください" }, 
+      class: "form-select" 
+    %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :question %>
+    <%= f.text_area :question, class: "form-control", rows: 2 %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :words %>
+    <%= f.text_field :words, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :answer %>
+    <%= f.text_area :answer, class: "form-control", rows: 10 %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :memo %>
+    <%= f.text_area :memo, class: "form-control", rows: 3 %>
+  </div>
+
+  <%= f.submit "保存する", class: "btn btn-primary" %>
+<% end %>
