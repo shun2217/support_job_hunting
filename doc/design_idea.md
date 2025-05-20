@@ -92,3 +92,13 @@
         * rails db:rollback
         * rails db:migrate
         * rails db:seed # これ使う前にresetやる
+        * RAILS_ENV=production rs 本番環境用のサーバー
+    * 環境の切り替え
+        * 開発➡本番
+            * rails assets:precompile
+            * RAILS_ENV=production rs
+        * 本番➡開発
+            * rails assets:clobber
+            * rs
+
+
