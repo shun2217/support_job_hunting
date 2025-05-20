@@ -52,3 +52,21 @@ document.addEventListener("turbo:before-cache", () => {
     table.DataTable().destroy();
   }
 });
+
+document.addEventListener('turbo:load', () => {
+  const textarea = document.getElementById('answer-textarea');
+  const counter = document.getElementById('answer-word-count');
+  if (!textarea || !counter) return;
+
+  const countChars = (text) => {
+    return text.length;
+  };
+
+  const updateCount = () => {
+    const chars = countChars(textarea.value);
+    counter.textContent = `文字数: ${chars}`;
+  };
+
+  updateCount();
+  textarea.addEventListener('input', updateCount);
+});
