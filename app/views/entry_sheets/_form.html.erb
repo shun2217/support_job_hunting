@@ -40,7 +40,8 @@
 
   <div class="mb-3">
     <%= f.label :answer %>
-    <%= f.text_area :answer, class: "form-control", rows: 10 %>
+    <%= f.text_area :answer, class: "form-control", rows: 10, id: "answer-textarea" %>
+    <div class="word-counter text-end text-muted mt-1" id="answer-word-count">文字数: 0</div>
   </div>
 
   <div class="mb-3">
