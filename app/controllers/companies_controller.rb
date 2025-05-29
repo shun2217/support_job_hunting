@@ -26,6 +26,17 @@ class CompaniesController < BaseController
     @company = Company.new
   end
 
+  def destroy
+    @company = Company.find(params[:id]) # 該当のレコードを取得
+    if @company.destroy #削除して成功か否かで分岐
+      flash[:notice] = "削除しました"
+      redirect_to companies_path # 成功の場合会社一覧に遷移
+    else
+      flash[:alert] = "削除できませんでした"
+      redirect_to companies_path
+    end
+  end
+
   def create
     @company = Company.new
     if @company.update(company_params) #作成して成功か否かで分岐

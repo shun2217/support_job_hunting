@@ -11,7 +11,11 @@ json.data @companies.map { |company|
       link = company.send(col) rescue nil
       link.present? ? link_to(human_column_name(Company, col), link, target: "_blank", rel: "noopener") : nil
     when "operation" # 編集ボタン
-      link_to("編集", edit_company_path(company), class: "btn btn-primary btn-sm")
+      edit_btn = link_to("編集", edit_company_path(company), class: "btn btn-primary btn-sm")
+      delete_btn = link_to("削除", company_path(company),
+                            data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" },
+                            class: "btn btn-danger btn-sm")
+      edit_btn + delete_btn
     when "status", "desire" # ENUM型の場合
       I18n.t("activerecord.enums.company.#{col}.#{company.send(col)}")
     when "industry_id" # 別のモデルから引っ張る
