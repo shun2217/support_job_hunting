@@ -26,6 +26,17 @@ class EntrySheetsController < BaseController
     @entry_sheet = EntrySheet.new
   end
 
+    def destroy
+    @entry_sheet = EntrySheet.find(params[:id]) # 該当のレコードを取得
+    if @entry_sheet.destroy #削除して成功か否かで分岐
+      flash[:notice] = "削除しました"
+      redirect_to entry_sheets_path # 成功の場合会社一覧に遷移
+    else
+      flash[:alert] = "削除できませんでした"
+      redirect_to entry_sheets_path
+    end
+  end
+
   def create
     @entry_sheet = EntrySheet.new
     if @entry_sheet.update(entry_sheet_params) #作成して成功か否かで分岐

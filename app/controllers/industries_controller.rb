@@ -26,6 +26,17 @@ class IndustriesController < BaseController
     @industry = Industry.new
   end
 
+    def destroy
+    @industry = Industry.find(params[:id]) # 該当のレコードを取得
+    if @industry.destroy #削除して成功か否かで分岐
+      flash[:notice] = "削除しました"
+      redirect_to industries_path # 成功の場合会社一覧に遷移
+    else
+      flash[:alert] = "削除できませんでした"
+      redirect_to industries_path
+    end
+  end
+
   def create
     @industry = Industry.new
     if @industry.update(industry_params) #作成して成功か否かで分岐
