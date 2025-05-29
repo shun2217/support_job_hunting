@@ -26,6 +26,17 @@ class EventsController < BaseController
     @event = Event.new
   end
 
+    def destroy
+    @event = Event.find(params[:id]) # 該当のレコードを取得
+    if @event.destroy #削除して成功か否かで分岐
+      flash[:notice] = "削除しました"
+      redirect_to events_path # 成功の場合会社一覧に遷移
+    else
+      flash[:alert] = "削除できませんでした"
+      redirect_to events_path
+    end
+  end
+
   def create
     @event = Event.new
     if @event.update(event_params) #作成して成功か否かで分岐
