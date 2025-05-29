@@ -98,7 +98,7 @@
             * rails assets:precompile
             * RAILS_ENV=production rs
         * 本番➡開発
-            * rails assets:clobber
+            * rails assets:clobber(jsやcssを更新する場合)
             * rs
 
 
