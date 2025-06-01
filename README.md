@@ -62,15 +62,6 @@
 | ------------ | ---------- |
 | ![企業一覧](./images/companies_index.png) | ![ES編集](./images/entry_sheet_edit.png) |
 
-（※必要に応じて他の画面も追加）
-
-### 操作デモ動画（任意）
-
-以下のリンクから、実際の操作の様子をご覧いただけます：
-
-▶ [操作デモを見る（YouTube）](https://www.youtube.com/watch?v=xxxxx)  
-（またはGIFで表示してもOKです）
-
 
 ## 今後の展望
 
