@@ -1,3 +1,40 @@
-<% provide(:title, "ホーム") %>
-<h1>ホーム画面</h1>
-<p>ここはホーム画面です</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-body">
+          <h5 class="card-title">会社一覧</h5>
+          <p class="card-text">興味のある会社の情報を保存できます</p>
+          <%= link_to "会社一覧へ", companies_path, class: "btn btn-light" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card text-white bg-success mb-3">
+        <div class="card-body">
+          <h5 class="card-title">業界一覧</h5>
+          <p class="card-text">興味のある業界の情報を保存できます</p>
+          <%= link_to "業界一覧へ", industries_path, class: "btn btn-light" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card text-white bg-warning mb-3">
+        <div class="card-body">
+          <h5 class="card-title">イベント一覧</h5>
+          <p class="card-text">予約した/予約予定の就活イベント情報を保存できます</p>
+          <%= link_to "イベント一覧へ", events_path, class: "btn btn-light" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card text-white bg-info mb-3">
+        <div class="card-body">
+          <h5 class="card-title">エントリーシート一覧</h5>
+          <p class="card-text">過去に書いたエントリーシートを保存できます</p>
+          <%= link_to "エントリーシート一覧へ", entry_sheets_path, class: "btn btn-light" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
