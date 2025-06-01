@@ -58,18 +58,9 @@
 
 ### 画面イメージ（一部）
 
-| 企業一覧画面 | ES編集画面 |
+| 会社一覧画面 | エントリーシート編集画面 |
 | ------------ | ---------- |
-| ![企業一覧](./images/companies_index.png) | ![ES編集](./images/entry_sheet_edit.png) |
-
-（※必要に応じて他の画面も追加）
-
-### 操作デモ動画（任意）
-
-以下のリンクから、実際の操作の様子をご覧いただけます：
-
-▶ [操作デモを見る（YouTube）](https://www.youtube.com/watch?v=xxxxx)  
-（またはGIFで表示してもOKです）
+| ![会社一覧](./images/companies_index.png) | ![エントリーシート編集](./images/entry_sheet_edit.png) |
 
 
 ## 今後の展望
