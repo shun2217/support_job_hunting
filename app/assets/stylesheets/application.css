@@ -155,3 +155,17 @@
   text-decoration: underline; /* ホバー時に下線 */
 }
 /* ここまで戻るボタン */
+
+/*コピーボタン*/
+.split-cell {
+  display: flex;
+  align-items: center;
+}
+.copy-btn.btn{
+  padding: 0;
+}
+.text-part {
+  text-align: center;
+  flex: 1;
+}
+/*ここまでコピーボタン*/

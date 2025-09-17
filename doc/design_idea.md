@@ -40,6 +40,7 @@
                 * 2 中 (middle)
                 * 3 高 (high)
             * マイページ(my_page)
+            * ログインID(login_id)
             * メモ (memo)
     * 業界(industry)
         * 関連
@@ -80,10 +81,12 @@
         * rails generate model モデル名
         * rails db:rollback
         * rails db:migrate
+        * rails db:reset
         * rails db:seed # これ使う前にresetやる
         * RAILS_ENV=production rs 本番環境用のサーバー
     * 環境の切り替え
         * 開発➡本番
+            * RAILS_ENV=production rails db:migrate(データベース書き換えた場合)
             * rails assets:precompile
             * RAILS_ENV=production rs
         * 本番➡開発
