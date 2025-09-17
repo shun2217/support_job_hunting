@@ -41,6 +41,19 @@ document.addEventListener("turbo:load", () => {
         columns: response.columns.map(col => ({ title: col })),
         data: response.data
       });
+      table.querySelectorAll(".copy-btn").forEach(btn => {
+        btn.addEventListener("click", e => {
+          e.preventDefault();
+          const value = btn.dataset.value;
+          if (!value) return;
+
+          navigator.clipboard.writeText(value).then(() => {
+            alert("コピーしました");
+          }).catch(err => {
+            console.error("コピーに失敗:", err);
+          });
+        });
+      });
     });
   }
 });

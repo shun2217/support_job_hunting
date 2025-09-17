@@ -14,7 +14,8 @@ Company.create([
     strength: '強みA', 
     weakness: '弱みA', 
     industry_id: 1, 
-    my_page: 'http://mypage_a.com'
+    my_page: 'http://mypage_a.com',
+    login_id: "asdfg"
   }, { 
     name: '株式会社B', 
     desire: 2, 
@@ -24,7 +25,8 @@ Company.create([
     strength: '強みB', 
     weakness: '弱みB', 
     industry_id: 1, 
-    my_page: 'http://mypage_b.com' 
+    my_page: 'http://mypage_b.com', 
+    login_id: "qwert"
   }, { 
     name: '株式会社C', 
     desire: 3, 
@@ -34,5 +36,6 @@ Company.create([
     strength: '強みC', 
     weakness: '弱みC', 
     industry_id: 2, 
-    my_page: 'http://mypage_c.com' }
+    my_page: 'http://mypage_c.com',
+    login_id: "zxcvb4567" }
 ])
